@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Redirection aléatoire</title>
+    <script>
+        function redirect() {
+            // Les URLs des deux questionnaires Google Forms
+            const url1 = "https://forms.office.com/r/czZshCdpwP";
+            const url2 = "https://forms.office.com/r/98dphjntGZ";
+
+            // Générer un nombre aléatoire entre 0 et 1
+            const randomNumber = Math.random();
+
+            // Sélectionner l'URL en fonction du nombre aléatoire
+            const selectedURL = randomNumber < 0.5 ? url1 : url2;
+
+            // Rediriger l'utilisateur vers l'URL sélectionnée
+            window.location.href = selectedURL;
+        }
+
+        // Appeler la fonction de redirection lors du chargement de la page
+        window.onload = redirect;
+    </script>
+</head>
+<body>
+    <p>Vous allez être redirigé. Si ce n'est pas le cas, cliquez <a href="#" id="redirectLink">ici</a>.</p>
+    <script>
+        // Assurez-vous que le lien de secours pointe également vers l'URL choisie
+        document.getElementById('redirectLink').onclick = function() {
+            redirect();
+        };
+    </script>
+</body>
+</html>
